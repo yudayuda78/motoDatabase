@@ -1,0 +1,11 @@
+{block content}
+<h1>Katalog Motor</h1>
+<ul>
+{foreach $motors as $motor}
+	<li>
+		<a n:href="Catalog:detail $motor[id]">{$motor[nama]}</a>
+		— Rp {number_format($motor[harga], 0, ',', '.')}
+	</li>
+{/foreach}
+</ul>
+{/block}

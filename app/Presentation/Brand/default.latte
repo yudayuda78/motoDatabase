@@ -1,0 +1,30 @@
+{block content}
+<section class="bg-neutral-950 py-16">
+	<div class="mx-auto max-w-6xl px-4 sm:px-6">
+		<p class="text-xs font-bold uppercase tracking-[0.3em] text-brand-500">Daftar Merek</p>
+		<h1 class="mt-2 text-3xl font-black uppercase tracking-wide text-neutral-100 sm:text-4xl">Brand Motor</h1>
+		<p class="mt-2 text-sm text-neutral-400">Semua merek yang terdaftar di database motoDB.</p>
+
+		{if count($brands) === 0}
+			<p class="mt-10 border border-neutral-800 bg-neutral-900 p-6 text-sm text-neutral-400">
+				Belum ada brand. Jalankan <code class="text-brand-400">vendor/bin/phinx seed:run</code>.
+			</p>
+		{else}
+			<div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+				{foreach $brands as $brand}
+					<a n:href="Brand:detail $brand['id']"
+						class="group flex items-center justify-between border border-neutral-800 bg-neutral-900 px-6 py-5 transition hover:border-brand-500/70 hover:bg-neutral-800">
+						<div>
+							<h2 class="text-lg font-black uppercase tracking-wide text-neutral-100 group-hover:text-brand-400">{$brand['nama']}</h2>
+							<p class="mt-1 text-xs uppercase tracking-wider text-neutral-500">{$brand['negara'] ?? '—'}</p>
+						</div>
+						<span class="flex h-9 w-9 items-center justify-center bg-brand-600 text-white transition group-hover:bg-brand-500">
+							<svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+						</span>
+					</a>
+				{/foreach}
+			</div>
+		{/if}
+	</div>
+</section>
+{/block}

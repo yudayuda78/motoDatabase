@@ -1,0 +1,16 @@
+@import "tailwindcss";
+@source "../../app/Presentation/**/*.latte";
+
+@theme {
+	--color-brand-50: #fdf3f2;
+	--color-brand-100: #fbe3e1;
+	--color-brand-200: #f7c5c1;
+	--color-brand-300: #f29a93;
+	--color-brand-400: #ea6459;
+	--color-brand-500: #e5342b;
+	--color-brand-600: #cc221c;
+	--color-brand-700: #ab1a18;
+	--color-brand-800: #8c1a1a;
+	--color-brand-900: #771c1b;
+	--color-brand-950: #420d0d;
+}

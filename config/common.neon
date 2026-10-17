@@ -1,0 +1,24 @@
+# see https://doc.nette.org/en/configuring
+
+parameters:
+
+application:
+	errorPresenter:
+		4xx: Error:Error4xx
+		5xx: Error:Error5xx
+	mapping: App\Presentation\*\**Presenter
+
+database:
+	dsn: %DB_DSN%
+	user: %DB_USER%
+	password: %DB_PASSWORD%
+
+latte:
+	strictParsing: yes
+	extensions:
+		- App\Presentation\Accessory\LatteExtension
+
+di:
+	export:
+		parameters: no
+		tags: no

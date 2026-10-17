@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+
+	<title>{ifset title}{include title|stripHtml} | {/ifset}motoDB</title>
+	<link rel="stylesheet" href="/assets/css/app.css">
+</head>
+
+<body class="bg-neutral-950 text-neutral-100 antialiased">
+	<nav class="sticky top-0 z-50 border-b border-neutral-800 bg-neutral-950/80 backdrop-blur">
+		<div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
+			<a n:href="Home:default" class="text-xl font-black tracking-tight">
+				<span class="text-brand-400">moto</span>DB
+			</a>
+			<div class="flex items-center gap-6 text-sm font-medium">
+				<a n:href="Home:default" class="text-neutral-100 transition hover:text-brand-400">Home</a>
+				<a n:href="Catalog:default" class="text-neutral-400 transition hover:text-brand-400">Katalog</a>
+				<a n:href="Brand:default" class="text-neutral-400 transition hover:text-brand-400">Brand</a>
+			</div>
+		</div>
+	</nav>
+
+	<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
+
+	<main>
+		{include content}
+	</main>
+
+	<footer class="border-t border-neutral-800 bg-neutral-950">
+		<div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 py-8 text-sm text-neutral-500 sm:flex-row sm:px-6">
+			<p>© {date('Y')} motoDB — database motor Indonesia.</p>
+			<p>Dibangun dengan Nette + Tailwind CSS.</p>
+		</div>
+	</footer>
+</body>
+</html>
